@@ -1,0 +1,51 @@
+body{
+    width: 80%;
+    margin: 100px auto;
+
+}
+
+.uno{
+    width: 970px;
+    height: 45px;
+    background-color: white;
+    border: 2px solid yellow;
+    position: relative;
+    padding-left: 10px;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.uno::before{
+    content: " ";
+    position: absolute;
+    border: 6px solid #9999FF;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    
+
+}
+.uno::after{
+    content: " ";
+    position: absolute;
+    border: 2px solid black;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    
+
+}
+
+.dos{
+    margin-top: 20px;
+    background-color: #ce8845;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.dos p{
+    color: rgba(255, 255, 255, 0.74);
+    border-bottom: 3px solid green;
+    
+}

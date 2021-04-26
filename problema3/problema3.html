@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Problema 3 </h1>
+    <p id="mensajeFinal">
+    </p>
+    <button type="submit" id="obtenerInformacion">Obtener información</button>
+    <button type="submit" id="limpiarInformacion">Limpiar información</button>
+
+</body>
+<script>
+        $(document).ready(function () {
+            var url = "https://pkgstore.datahub.io/core/country-codes/country-codes_json/data/616b1fb83cbfd4eb6d9e7d52924bb00a/country-codes_json.json";
+            $("#obtenerInformacion").click(function () {
+                $.ajax({
+                    dataType: 'json',
+                    url: url
+                }).then(function (data) {
+                    var buscador = "";
+                    for (var i = 0; i < data.length; i++) {
+                        buscador = data[i];
+                        $('#mensajeFinal').append("<p> <b>Nombre CLDR:</b> " + buscador['CLDR display name']
+                            + " <b>Capital:</b> " + buscador['Capital']
+                            + " <b>FIFA:</b> " + buscador['FIFA']
+                            + " <b>FIPS:</b> " + buscador['FIPS']
+                            + " <b>Continent:</b> " + buscador['Continent']
+                            + " <b>Languages:</b> " + buscador['Languages']
+                            + " <b>Geoname ID:</b> " + buscador['Geoname ID']
+                            + " <b>DS:</b> " + buscador['DS']
+                            + " </p> ");
+                        console.log(buscador)
+                    }
+                })
+            });
+            $("#limpiarInformacion").click(function () {
+                $('#mensajeFinal').empty();
+            });
+        });
+</script>
+
+</html>
